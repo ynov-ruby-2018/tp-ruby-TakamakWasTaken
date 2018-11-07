@@ -1,0 +1,20 @@
+<div class="container">
+  <%= "Hello #{current_user.email}" %>
+  <%= form_tag homepage_index_path , method: :post do %>
+    <%= text_area_tag 'comment', nil %>
+    </br>
+    <%= submit_tag "Envoyer" %>
+  <% end %>
+
+  <table class="table table-thin table-striped">
+    <% @comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= comment.user.email %>
+        </td>
+        <td><%= comment.content %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
